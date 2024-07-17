@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="app-version" content="<%= htmlWebpackPlugin.options.appVersion %>">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>NETWORK INSIGHT DASHBOARD</title>
+  <!-- Bootstrap 5.3.2 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  
+  <!-- FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- FA ICON -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <%
+    const procodeConfig = htmlWebpackPlugin?.options?.procodeConfig;
+    if(procodeConfig?.customComponentScriptList) {
+      for (let i = 0; i < procodeConfig?.customComponentScriptList?.length; i++) {
+      const scriptUrl = procodeConfig?.customComponentScriptList[i];
+  %>
+
+  <script src="<%= scriptUrl %>"></script>
+
+  <% }}
+
+    if(procodeConfig?.jsLibScriptList) {
+        for (let i = 0; i < procodeConfig?.jsLibScriptList?.length; i++) {
+        const jsScriptUrl = procodeConfig?.jsLibScriptList[i];
+  %>
+
+  <script src="<%= jsScriptUrl %>"></script>
+
+  <% }}
+
+    if(procodeConfig?.jsLibStyleList) {
+        for (let i = 0; i < procodeConfig?.jsLibStyleList?.length; i++) {
+        const jsStyleUrl = procodeConfig?.jsLibStyleList[i];
+  %>
+
+  <link rel="stylesheet" href="<%= jsStyleUrl %>"></link>
+
+  <% }}
+
+  %>
+
+</head>
+<body>
+  <div id="app" class="height-main"></div>
+  
+  <!-- ECHARTS -->
+  <script src="../assets/js/echarts.js"></script>
+
+  <!-- JQUERY -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- Bootstrap & POPPER -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.common.min.js" integrity="sha512-0wDoQXJkUrgPk8OvsJ/hSJiBVXiII1ixzjKddv6RQUoCTZsB9GRF4S6oszAqeSgU6FlSusayKNC2VTUpZsb9pA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+
+</body>
+</html>
